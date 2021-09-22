@@ -1,0 +1,63 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block body %}
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> Inquiry<a class="m-5 btn btn-success"
+                                                             href="{% url 'dashboard:inquiry_specific' "False" %}">New</a>
+                <a class="btn btn-success" href=" {% url 'dashboard:inquiry_specific' "True" %}">Old</a>
+            <a class="btn btn-success" href=" {% url 'dashboard:inquiry' %}">All</a></h3>
+
+            <div class="row mb">
+                <!-- page start-->
+                <div class="content-panel">
+                    <div class="container adv-table">
+                        <table  class="display  table-bordered"
+                               id="hidden-table-info">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product Name</th>
+                                <th>product Images</th>
+                                <th>Customer Name</th>
+                                <th>Customer Phone Number</th>
+                                <th>Customer Address</th>
+                                <th>product Quantity</th>
+                                <th>Date Of Inquiry</th>
+                                <th>Viewed</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for i in inquiry %}
+                                <tr class="gradeA">
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ i.product }}</td>
+                                    <td><img src="{{ i.product.thumbnail_image.url }}" style="object-fit: cover" width="230vh" height="100vh"></td>
+                                    <td>{{ i.name }}</td>
+                                    <td>{{ i.phone_number }}</td>
+                                    <td>{{ i.address }}</td>
+                                    <td>{{ i.quantity }}</td>
+                                    <td>{{ i.date }}</td>
+                                    <td class="hidden-phone">{% if i.viewed == False %}<a class="btn btn-success" href="{% url 'dashboard:inquiry_read' i.id %}">Marked As Read</a> {% else %} Viewed {% endif %} </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <!-- page end-->
+            </div>
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <!-- <i class="fas fa-plus"></i> -->
+                    <li><a class="logout" href="{% url 'dashboard:create_blog' %}"> Add Category</a></li>
+                </ul>
+            </div>
+            <!-- /row -->
+        </section>
+        <!-- /wrapper -->
+    </section>
+{% endblock %}

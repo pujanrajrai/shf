@@ -1,0 +1,45 @@
+{% extends 'home/base.html' %}
+{% block title %}
+    Blog
+{% endblock %}
+{% block body %}
+    <!--Blog Posts -->
+    <!--Blog Posts -->
+    <div class="container mt-4">
+        <section id="posts" class="blog text-center mb-4">
+            <h2 class="mb-5">OUR <strong>BLOGS</strong></h2>
+            <div class="row">
+                {% for blog in blogs %}
+                    <div class="col-md-4 mb-4">
+                        <div class="bg-image hover-overlay ripple shadow-1-strong rounded mb-4"
+                             data-ripple-color="light">
+                            <img src="{{ blog.thumbnail_image.url }}" class="w-100"/>
+
+                        </div>
+                        <h5>{{ blog.name|slice:"50" }}{% if blog.name|length > 50 %}
+                            ....{% endif %} </h5>
+                        <p>
+                            {{ blog.desc|safe|slice:"130" }}{% if blog.desc|length > 130 %}.....{% endif %}
+                        </p>
+                        <a class="btn mt-4 text-white" href="{% url 'blogs:blog_details' blog.slug %}"> Read More <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+        <!-- Posts -->
+    </div>
+
+    <!-- Pagination -->
+    <div class="text-center">
+        <div class="pagination mb-4 mt-2">
+            {% if blogs.has_previous %}
+                <a href="{% url 'blogs:all_blogs' %}?page={{ blogs.previous_page_number }}">&laquo; Previous</a>
+            {% endif %}
+            <a href="#" class="active">{{ page_number }}</a>
+            {% if blogs.has_next %}
+                <a href="{% url 'blogs:all_blogs' %}?page={{ blogs.next_page_number }}">Next&raquo;</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'dashboard/base.html' %}
+{% block body %}
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i> CATEGORY</h3>
+            <!-- BASIC FORM ELELEMNTS -->
+            <div class="row mt">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <h4 class="title">ADD CATEGORY</h4>
+                    <div id="message"></div>
+                    <form class="contact-form php-mail-form" role="form" action="{% url 'dashboard:cat_add' %}"
+                          method="POST">
+                        {% csrf_token %}
+                        {% if errors %}
+                            <div class="alert alert-danger">
+                                {% for name, error in errors.items %}
+                                    {{ name }}: {{ error.as_text }}<br>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" id="contact-name"
+                                   placeholder="Category Name" data-rule="minlen:4"
+                                   data-msg="Please enter at least 4 chars" required>
+                            <div class="validate"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="desc" class="form-control" id="contact-subject"
+                                   placeholder="Enter Description" data-rule="minlen:4"
+                                   data-msg="Please enter at least 8 chars of subject" required>
+                            <div class="validate"></div>
+                        </div>
+                        <div class="form-send">
+                            <button type="submit" class="btn btn-large btn-primary">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+            <!-- /row -->
+
+
+            <!-- /row -->
+        </section>
+        <!-- /wrapper -->
+    </section>
+{% endblock %}

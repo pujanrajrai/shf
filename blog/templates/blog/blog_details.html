@@ -1,0 +1,50 @@
+{% extends 'home/base.html' %}
+{% block title %}
+    Blog-Details
+{% endblock %}
+{% block css %}
+    <style>
+        img {max-width:100%}
+
+
+
+    </style>
+{% endblock %}
+{% block body %}
+    <main class="blog-detail my-4">
+        <div class="container">
+            {% for blog in blogs %}
+                <h2>{{ blog.name }}</h2>
+                <div class="row">
+
+                <div class="col-lg-12 mb-4">
+                <!-- Post Data -->
+                <section id="post" class="post border-bottom mb-4">
+                    <img src="{{ blog.thumbnail_image.url }}" alt="Feature image"
+                         class="feature-img img-fluid shadow-2-strong rounded mb-4"/>
+                    <div class="row align-items-center mb-4">
+                        <div class="col-md-6 text-center text-lg-left mb-3 m-lg-0">
+                            <span>Published on <u>{{ blog.date }}</u> by</span>
+                            <a href="#" class="text-dark">Sh Furniture</a>
+                        </div>
+
+                    </div>
+                </section>
+                <!-- Post Data -->
+                <!-- Post Content -->
+                <section id="content" class="border-bottom mb-4">
+                    <p>
+                        {{ blog.desc|safe }}
+                    </p>
+                </section>
+            {% endfor %}
+
+            </div>
+            <div class="col-lg-4 mb-4">
+
+            </div>
+            </div>
+        </div>
+    </main>
+    <!-- Main layout -->
+{% endblock %}

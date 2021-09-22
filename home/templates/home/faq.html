@@ -1,0 +1,105 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %}
+    Sh Furniture
+{% endblock %}
+{% block csslink %}
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+{% endblock %}
+{% block body %}
+
+    <!-- Start Scroll Up Button -->
+    <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out"
+       data-aos="zoom-in"
+       data-abc="true"></a>
+    <!-- End Scroll Up Button -->
+
+    <!-- Start FAQ Section -->
+    <div class="faq">
+        <div class="accordion">
+            <div class="image-box">
+                <img src="{% static 'website/assets/logo.png' %}" alt="Accordion Image">
+            </div>
+            <div class="accordion-text">
+                <h2 class="title mb-5">FREQUENTLY ASKED <strong>QUESTIONS</strong></h2>
+                <ul class="faq-text">
+                    <li>
+                        <div class="question-arrow">
+                            <span class="question">How to make my order enquiry?</span>
+                            <i class="bx bxs-chevron-down arrow"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, doloribus.</p>
+                        <span class="line"></span>
+                    </li>
+                    <li>
+                        <div class="question-arrow">
+                            <span class="question">How can I contact you?</span>
+                            <i class="bx bxs-chevron-down arrow"></i>
+                        </div>
+                        <p>JavaScript is a text-based programming language used both on the client-side and server-side
+                            that allows
+                            you to make web pages interactive</p>
+                        <span class="line"></span>
+                    </li>
+                    <li>
+                        <div class="question-arrow">
+                            <span class="question">How to utilize this website?</span>
+                            <i class="bx bxs-chevron-down arrow"></i>
+                        </div>
+                        <p>JavaScript is a text-based programming language used both on the client-side and server-side
+                            that allows
+                            you to make web pages interactive</p>
+                        <span class="line"></span>
+                    </li>
+                    <li>
+                        <div class="question-arrow">
+                            <span class="question">What varieties of order we offer?</span>
+                            <i class="bx bxs-chevron-down arrow"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, necessitatibus.</p>
+                        <span class="line"></span>
+                    </li>
+                    <li>
+                        <div class="question-arrow">
+                            <span class="question">Who are we?</span>
+                            <i class="bx bxs-chevron-down arrow"></i>
+                        </div>
+                        <p>JavaScript is a text-based programming language used both on the client-side and server-side
+                            that allows
+                            you to make web pages interactive</p>
+                        <span class="line"></span>
+                    </li>
+                    <li>
+
+                        <div class="question-arrow">
+                            <span class="question">Why to choose us?</span>
+                            <i class="bx bxs-chevron-down arrow"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, labore.</p>
+                        <span class="line"></span>
+                    </li>
+                    <li>
+                        <div class="question-arrow">
+                            <span class="question">In which places we deliver our services?</span>
+                            <i class="bx bxs-chevron-down arrow"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, repudiandae!</p>
+                        <span class="line"></span>
+                    </li>
+                    <li>
+                        <div class="question-arrow">
+                            <span class="question">What about the pricing details?</span>
+                            <i class="bx bxs-chevron-down arrow"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, repudiandae!</p>
+                        <span class="line"></span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End FAQ Section -->
+{% endblock %}

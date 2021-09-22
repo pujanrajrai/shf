@@ -1,0 +1,120 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block body %}
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12 main-chart">
+                    <!--CUSTOM CHART START -->
+
+                    <div class="row mt">
+                        <!-- SERVER STATUS PANELS -->
+
+                        <!-- /col-md-4-->
+
+                        <!-- /col-md-4 -->
+                        <div class="col-md-4 col-sm-4 mb">
+                            <!-- REVENUE PANEL -->
+                            <div class="green-panel pn">
+                                <div class="green-header" style="background-color: #333333">
+                                    <h3>Product</h3>
+                                </div>
+                                <div class="chart mt">
+                                    <div class="sparkline" data-type="line" data-resize="true" data-height="75"
+                                         data-width="90%" data-line-width="1" data-line-color="#fff"
+                                         data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff"
+                                         data-spot-radius="4"
+                                         data-data="[200,135,667,333,526,996,564,123,890,464,655]"></div>
+                                </div>
+                                <p class="mt" style="font-size: 2rem; font-weight: bold"><b>Total Number of Product </b><br/>{{ total_product }}</p>
+                            </div>
+                        </div>
+                        <!-- /col-md-4 -->
+                        <div class="col-md-4 col-sm-4 mb">
+                            <!-- REVENUE PANEL -->
+                            <div class="green-panel pn">
+                                <div class="green-header" style="background-color: #333333">
+                                    <h3>Blogs</h3>
+                                </div>
+                                <div class="chart mt">
+                                    <div class="sparkline" data-type="line" data-resize="true" data-height="75"
+                                         data-width="90%" data-line-width="1" data-line-color="#fff"
+                                         data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff"
+                                         data-spot-radius="4"
+                                         data-data="[200,135,667,333,526,996,564,123,890,464,655]"></div>
+                                </div>
+                                <p class="mt" style="font-size: 2rem; font-weight: bold"><b>Total Number of Blogs</b><br/>{{ total_blog }}</p>
+                            </div>
+                        </div>
+                        <!-- /col-md-4 -->
+                        <div class="col-md-4 col-sm-4 mb">
+                            <!-- REVENUE PANEL -->
+                            <div class="green-panel pn">
+                                <div class="green-header" style="background-color: #333333">
+                                    <h3>Product Inquiry</h3>
+                                </div>
+                                <div class="chart mt">
+                                    <div class="sparkline" data-type="line" data-resize="true" data-height="75"
+                                         data-width="90%" data-line-width="1" data-line-color="#fff"
+                                         data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff"
+                                         data-spot-radius="4"
+                                         data-data="[200,135,667,333,526,996,564,123,890,464,655]"></div>
+                                </div>
+                                <p class="mt" style="font-size: 2rem; font-weight: bold"><b>Total Number of Product Inquiry</b><br/>{{ total_inquiry }}</p>
+                            </div>
+                        </div>
+                        <!-- /col-md-4 -->
+                    </div>
+                    <!-- /row -->
+                    <div class="row mt">
+                        <!-- SERVER STATUS PANELS -->
+
+                        <!-- /col-md-4-->
+
+                        <!-- /col-md-4 -->
+                        <div class="col-md-4 col-sm-4 mb">
+                            <!-- REVENUE PANEL -->
+                            <div class="green-panel pn">
+                                <div class="green-header "style="background-color: #333333">
+                                    <h3>Product Category</h3>
+                                </div>
+                                <div class="chart mt">
+                                    <div class="sparkline" data-type="line" data-resize="true" data-height="75"
+                                         data-width="90%" data-line-width="1" data-line-color="#fff"
+                                         data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff"
+                                         data-spot-radius="4"
+                                         data-data="[200,135,667,333,526,996,564,123,890,464,655]"></div>
+                                </div>
+                                <p class="mt"style="font-size: 2rem; font-weight: bold">Total Number of Product Category <br/>{{ total_product_category }}</p>
+                            </div>
+                        </div>
+                        <!-- /col-md-4 -->
+                        <div class="col-md-4 col-sm-4 mb">
+                            <!-- REVENUE PANEL -->
+                            <div class="green-panel pn">
+                                <div class="green-header"style="background-color: #333333">
+                                    <h3><b>Contact</b></h3>
+                                </div>
+                                <div class="chart mt">
+                                    <div class="sparkline" data-type="line" data-resize="true" data-height="75"
+                                         data-width="90%" data-line-width="1" data-line-color="#fff"
+                                         data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff"
+                                         data-spot-radius="4"
+                                         data-data="[200,135,667,333,526,996,564,123,890,464,655]"></div>
+                                </div>
+                                <p class="mt" style="font-size: 2rem; font-weight: bold"> Total Number of Incoming Queries<br/> {{ total_contact }} </p>
+                            </div>
+                        </div>
+                        <!-- /col-md-4 -->
+                    </div>
+                    <!-- /row -->
+
+
+                </div>
+                <!-- /col-lg-9 END SECTION MIDDLE -->
+
+            </div>
+            <!-- /row -->
+        </section>
+    </section>
+{% endblock %}

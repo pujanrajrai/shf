@@ -1,0 +1,133 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+{% block body %}
+
+    <div id="container" class="login-register">
+        <!-- FORM SECTION -->
+        <div class="row">
+            <!-- SIGN UP -->
+            <div class="col align-items-center flex-col sign-up">
+                <div class="form-wrapper align-items-center">
+                    <div class="form sign-up">
+                        <div class="input-group">
+                            <i class="fas fa-user ml-4 mr-2"></i> Username
+                            <input type="text" placeholder="Enter Username">
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-envelope ml-4 mr-2"></i> Email
+                            <input type="email" placeholder="Enter Email">
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-key ml-4 mr-2"></i> Password
+                            <input type="password" placeholder="Enter Password">
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-key ml-4 mr-2"></i> Confirm Password
+                            <input type="password" placeholder="Confirm Password">
+                        </div>
+                        <button>
+                            Sign Up
+                        </button>
+                        <!-- <a href="index.html" style="font-size: 20px;"> Back</a> -->
+
+                        <p>
+                <span class="span" style="font-size: 14px;">
+                  Already have an account?
+                </span>
+                            <b onclick="toggle()" class="pointer">
+                                Sign in here
+                            </b>
+                        </p>
+                    </div>
+                </div>
+                <div class="form-wrapper">
+                    <div class="social-list align-items-center sign-up">
+                        <div class="align-items-center facebook-bg" title="Sign In with Facebook">
+                            <!-- <i class='bx bxl-facebook'></i> --><i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="align-items-center google-bg" title="Sign In with Google">
+                            <!-- <i class='bx bxl-google'></i> --> <i class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END SIGN UP -->
+            <!-- SIGN IN -->
+            <div class="col align-items-center flex-col sign-in">
+                <div class="form-wrapper align-items-center">
+                    <div class="form sign-in">
+                        <div class="input-group">
+                            <i class="fas fa-user ml-4 mr-2"></i> Username
+                            <input type="text" placeholder="Enter Username">
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-key ml-4 mr-2"></i> Password
+                            <input type="password" placeholder="Enter Password">
+                        </div>
+                        <button>
+                            Sign In
+                        </button>
+                        <!-- <a href="index.html" style="font-size: 20px;"> Back</a> -->
+
+                        <!-- <p>
+                                      <b>
+                                          Forgot password?
+                                      </b>
+                                  </p> -->
+                        <p>
+                <span class="span" style="font-size: 14px;">
+                  Don't have an account?
+                </span>
+                            <b onclick="toggle()" class="pointer">
+                                Sign up here
+                            </b>
+                        </p>
+                    </div>
+                </div>
+                <div class="form-wrapper">
+                    <div class="social-list align-items-center sign-in">
+                        <div class="align-items-center facebook-bg" title="Sign In with Facebook">
+                            <!-- <i class='bx bxl-facebook'></i> --> <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="align-items-center google-bg" title="Sign In with Gmail">
+                            <!-- <i class='bx bxl-google'></i> --><i class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END SIGN IN -->
+        </div>
+        <!-- END FORM SECTION -->
+        <!-- CONTENT SECTION -->
+        <div class="row content-row">
+            <!-- SIGN IN CONTENT -->
+            <div class="col align-items-center flex-col">
+                <div class="text sign-in">
+                    <h2>
+                        Login Panel
+                    </h2>
+
+                </div>
+                <div class="img sign-in">
+                    <img src="/assets/login.svg" alt="welcome">
+                </div>
+            </div>
+            <!-- END SIGN IN CONTENT -->
+            <!-- SIGN UP CONTENT -->
+            <div class="col align-items-center flex-col">
+                <div class="img sign-up">
+                    <img src="/assets/register.svg" alt="welcome">
+                </div>
+                <div class="text sign-up">
+                    <h2>
+                        No Account? Register Here
+                    </h2>
+
+                </div>
+            </div>
+            <!-- END SIGN UP CONTENT -->
+        </div>
+        <!-- END CONTENT SECTION -->
+    </div>
+{% endblock %}

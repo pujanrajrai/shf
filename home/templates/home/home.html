@@ -1,0 +1,426 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %}
+    Sh Furniture
+{% endblock %}
+{% block css %}
+    <link href="{% static 'website/css/owl.carousel.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block body %}
+
+    <!--Start Image Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner about">
+            <center>
+                <div class="carousel-item active">
+                    <img src="{% static 'website/assets/carousel/c1.jpg' %}"
+                         class="img-responsive d-block w-100" alt="...">
+
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="text-white"><b>Get to Know SH Furniture</b></h2>
+                        <p class="text-white"><b>Find out what makes us Nepal's Finest Furniture Store</b></p>
+                        <a class="btn btn-dark text-white" target="_blank" href="{% url 'home:about_us' %}" role="button"> About
+                            SH <i class="fas fa-arrow-right"></i></a>
+
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'website/assets/carousel/c2.jpeg' %}" class="img-responsive d-block w-100"
+                         alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="text-dark"><b>Deliver Quality Products</b></h2>
+                        <p class="text-dark"><b>SH Furniture aims in the production of the quality products.</b></p>
+                        <a class="btn btn-dark text-white" target="_blank" href="{% url 'home:about_us' %}" role="button"> About
+                            SH <i class="fas fa-arrow-right"></i></a>
+
+
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'website/assets/carousel/c3.jpg' %}"
+                         class="img-responsive d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="text-white"><b>Meet The Clients Requirements</b></h2>
+                        <p class="text-white"><b>Client satisfaction is our ultimate target.</b></p>
+                        <a class="btn btn-dark text-white" target="_blank" href="{% url 'home:about_us' %}" role="button"> About
+                            SH <i class="fas fa-arrow-right"></i></a>
+
+
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'website/assets/carousel/c4.jpg' %}"
+                         class="img-responsive d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="text-dark"><b>Produce Trustworthy & Durable Product</b></h2>
+                        <p class="text-dark"><b>Products of the company are reliable and sustainable.</b></p>
+                        <a class="btn btn-dark text-white" target="_blank" href="{% url 'home:about_us' %}" role="button"> About
+                            SH <i class="fas fa-arrow-right"></i></a>
+
+
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </center>
+        </div>
+    </div>
+    <!-- End Image Carousel -->
+
+    <!--Start What we Offer -->
+    <section class="our-deliver mt-2 mb-3">
+        <div class="text-center">
+            <h2 class="mb-4">EXPLORE OUR <strong>FURNITURE</strong></h2>
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="col-2" title="Chair"><a href="javascript:void(0)"><img class="img-fluid"
+                                                                                       src="{% static 'website/assets/explore-icon/chair.png' %}"/></a>
+                    </div>
+                    <div class="col-2" title="Couch"><a href="javascript:void(0)"><img class="img-fluid"
+                                                                                       src="{% static 'website/assets/explore-icon/couch.png' %}"/></a>
+                    </div>
+                    <div class="col-2" title="Hospital Bed"><a href="javascript:void(0)"><img class="img-fluid"
+                                                                                              src="{% static 'website/assets/explore-icon/hospital-bed.png' %}"/></a>
+                    </div>
+                    <div class="col-2" title="Daraz"><a href="javascript:void(0)"><img class="img-fluid"
+                                                                                       src="{% static 'website/assets/explore-icon/daraz.png' %}"/></a>
+                    </div>
+                    <div class="col-2" title="Cupboard"><a href="javascript:void(0)"><img class="img-fluid"
+                                                                                          src="{% static 'website/assets/explore-icon/cupboard.png' %}"/></a>
+                    </div>
+                    <div class="col-2" title="Rack"><a href="javascript:void(0)"><img class="img-fluid"
+                                                                                      src="{% static 'website/assets/explore-icon/rack.png' %}"/></a>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-2" title="Office Chair"><a href="javascript:void(0)"><img class="img-fluid"
+                                                                                              src="{% static 'website/assets/explore-icon/office-chair.png' %}"/></a>
+                    </div>
+                    <div class="col-2" title="Table"><a href="javascript:void(0)"><img class="img-fluid"
+                                                                                       src="{% static 'website/assets/explore-icon/table.png' %}"/></a>
+                    </div>
+                    <div class="col-2" title="Bed"><a href="javascript:void(0)"><img class="img-fluid"
+                                                                                     src="{% static 'website/assets/explore-icon/bed.png' %}"/></a>
+                    </div>
+                    <div class="col-2" title="Sofa Set"><a href="javascript:void(0)"><img class="img-fluid"
+                                                                                          src="{% static 'website/assets/explore-icon/lounge.png' %}"/></a>
+                    </div>
+                    <div class="col-2" title="Oxygen Cylinder Stand"><a href="javascript:void(0)"><img class="img-fluid"
+                                                                                                       src="{% static 'website/assets/explore-icon/scuba-tank.png' %}"/></a>
+                    </div>
+
+                    <div class="col-2" title="Stool">
+                        <a href="javascript:void(0)"><img class="img-fluid"
+                                                          src="{% static 'website/assets/explore-icon/stool.png' %}"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Start Scroll Up Button -->
+    <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out"
+       data-aos="zoom-in"
+       data-abc="true"></a>
+
+
+    <!-- Product -->
+
+    <div class="container mb-3 product text-center" id="product">
+        <h2 class="mt-5 mb-5">OUR <strong>PRODUCTS</strong></h2>
+        <div class="row">
+            <div class="owl-carousel" id="product-slider">
+                {% for product in products %}
+                    <div class="product mr-2">
+                        <div class="product-img">
+                            <a href="" class="image">
+                                <img class="img-thumbnail pic-1"
+                                     src="{{ product.thumbnail_image.url }}">
+                                <img class="img-thumbnail pic-2"
+                                     src="{{ product.thumbnail_image2.url }}">
+                            </a>
+                            <a href="{% url 'product:product_details' product.slug %}"><span class="view"><i
+                                    class="fas fa-eye"></i> View</span></a>
+
+                        </div>
+                        <div class="content">
+                            <p class="card-text title"><a href="">
+                                {{ product.name|slice:"15" }}{% if product.name|length > 15 %}...{% endif %}</a>
+                            </p>
+                            <span class="category"><a href="">{{ product.category }}</a></span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <a class="btn mt-4 text-white mb-3" href="{% url 'product:all_product' %}" role="button"><i
+                class="fas fa-eye"></i> View
+            All
+            Products</a>
+    </div>
+
+    <!-- End Product -->
+
+    <!-- Start Message from ceo -->
+    <!-- End Message from ceo -->
+
+    <!--Start Our Blogs -->
+    <div class="blog mb-3" id="blog">
+        <div class="container text-center">
+            <h2 class="mb-5">OUR <strong>BLOGS</strong></h2>
+            <section id="posts" class="posts text-center mb-4">
+                <div class="row">
+                    {% for blog in blogs %}
+                        <div class="blog-card col-md-4 mb-4">
+                            <div class="bg-image hover-overlay ripple shadow-1-strong rounded mb-4"
+                                 data-ripple-color="light">
+                                <img src="{{ blog.thumbnail_image.url }}" class="w-100"/>
+                            </div>
+                            <h5>{{ blog.name|slice:"30" }}{% if blog.name|length > 30 %}......{% endif %}</h5>
+                            <p>
+                                {{ blog.desc|safe|slice:"120" }}{% if blog.desc|length > 30 %}......{% endif %}
+                            </p>
+                            <a class="read-btn mt-4 text-dark" href="{% url 'blogs:all_blogs' %}"> <strong>Read
+                                More </strong><i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <a class="btn mb-3 text-white" href="{% url 'blogs:all_blogs' %}" role="button"><i
+                        class="fas fa-eye"></i> View All
+                    Blogs</a>
+            </section>
+            <!-- Posts -->
+        </div>
+    </div>
+    <!-- End Our Blogs -->
+
+    <!-- Start Testimonial -->
+    <div class="jumbotron mb-3" id="testimonial">
+        <div class="row">
+            <div class="testimonial col-md-8 text-center m-auto">
+                <h2 class="mb-3">OUR <strong>CLIENTS SAY</strong></h2>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Carousel -->
+                    <div class="carousel-inner">
+                        <div class="item carousel-item active">
+                            <div class="img-box"><img
+                                    src="{% static 'website/assets/BABA Furniture Showroom.png' %}"
+                                    alt=""></div>
+                            <p class="testimonial">With almost 3 years plus of collaboration with SH Furniture Udhyog, I
+                                can say that SH has been providing one of the finest furnitures products in their
+                                coverage.
+                            </p>
+                            <p class="overview"><b>BABA FURNITURE SHOWROOM, </b> Nepaljung</p>
+
+                        </div>
+                        <div class="item carousel-item">
+                            <div class="img-box"><img
+                                    src="{% static 'website/assets/Bal Ram Chaudhary Image.jpg' %}"
+                                    alt=""></div>
+                            <p class="testimonial">SH Furniture Udhyog offers quality and reliable products. They never
+                                fail to meet the requirements of the clients. The delivery time period of the company is
+                                also absolute.
+                            </p>
+                            <p class="overview"><b>BAL RAM CHAUDHARY,</b> LB Furniture Udhyog</p>
+                        </div>
+                    </div>
+                    <!-- Carousel Controls -->
+                    <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Testimonial -->
+
+    <!-- Start Contact Section -->
+    <section class="contact mb-3" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="mb-5">CONTACT<strong> US</strong></h2>
+            </div>
+            <!-- Grid row -->
+            <div class="row">
+                <!-- Grid column -->
+                <div class="col-lg-5 mb-lg-0 mb-4">
+                    <!-- Form with header -->
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Body -->
+                            <form id="contact_form" method="post" onclick="return false">{% csrf_token %}
+                                <div class="sucess-message">
+                                </div>
+                                <div class="md-form">
+                                    <i class="fas fa-user prefix grey-text"></i>
+                                    <label for="form-name">Your name</label>
+                                    <input name="name" type="text" id="name" class="form-control" required>
+                                    <div id="name_error">
+                                    </div>
+                                </div>
+                                <div class="md-form">
+                                    <i class="fas fa-envelope prefix grey-text"></i>
+                                    <label for="form-email">Your email</label>
+                                    <input name="email" type="email" id="email" class="form-control" required>
+                                </div>
+                                <div id="email_error">
+                                </div>
+                                <div class="md-form">
+                                    <i class="fas fa-tag prefix grey-text"></i>
+                                    <label for="form-Subject">Subject</label>
+                                    <input name="subject" type="text" id="subject" class="form-control" required>
+                                </div>
+                                <div id="subject_error">
+                                </div>
+
+                                <div class="md-form">
+                                    <i class="fas fa-pencil-alt prefix grey-text"></i>
+                                    <label for="form-text">Send message</label>
+                                    <textarea name="message" id="message" class="form-control md-textarea"
+                                              rows="3" required></textarea>
+                                </div>
+                                <div id="message_error">
+                                </div>
+
+                                <div class="send text-center">
+                                    <button type="submit" class="btn text-white mt-5 formbutton" href="#" role="button">
+                                        <i
+                                                class="fa fa-paper-plane"
+                                                aria-hidden="true"></i>
+                                        Send
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Form with header -->
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-lg-7">
+                    <!-- Buttons-->
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <a class="btn-floating blue accent-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </a>
+                            <p>Kohalpur-11 Banke, Nepal</p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <a class="btn-floating blue accent-1">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                            <p>081-542182</p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <a class="btn-floating blue accent-1">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <p>shfurniture3@gmail.com</p>
+                        </div>
+                    </div>
+                    <!--Google map-->
+                    <div id="map-container-section" class="z-depth-1-half map-container-section mb-4">
+                        <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14133.976201915886!2d85.34463115!3d27.67112125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1630161637748!5m2!1sen!2snp"
+                                width="600" height="450" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <!-- End Contact Section -->
+
+{% endblock %}
+{% block js %}
+    <script>
+        $("form").on("click", ".formbutton", function (e) {
+            $.ajax({
+                url: "{% url 'home:contact' %}",
+                method: "POST",
+                data: {
+                    name: $("#name").val(),
+                    email: $("#email").val(),
+                    subject: $("#subject").val(),
+                    message: $("#message").val(),
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                    action: 'post',
+                },
+                success: function (data) {
+                    $(".nameerror").remove();
+                    $(".emailerror").remove();
+                    $(".subjecterror").remove();
+                    $(".messageerror").remove();
+                    var x = data.errors;
+                    let nameerror = "";
+                    let emailerror = "";
+                    let subjecterror = "";
+                    let messageerror = "";
+                    let success = "";
+                    console.log(data.message)
+                    if (data.message == "success") {
+                        $('#name').val('');
+                        $('#email').val('');
+                        $('#subject').val('');
+                        $('#message').val('');
+
+                        success += "<div class='alert alert-primary'>" + "message send sucessfully" + "</div>"
+                        $(".sucess-message").html(success);
+
+
+                    }
+                    $.each(x, function (key, value) {
+                        if (key == "name") {
+                            nameerror += "<div class='error-message nameerror'>" + value + "</div>"
+                            $("#name_error").html(nameerror);
+
+                        }
+
+                        if (key == "email") {
+                            emailerror += "<div class='error-message emailerror'>" + value + "</div>"
+                            $("#email_error").html(emailerror);
+
+                        }
+                        if (key == "subject") {
+                            subjecterror += "<div class='error-message subjecterror'>" + value + "</div>"
+                            $("#subject_error").html(subjecterror);
+
+                        }
+                        if (key == "message") {
+                            messageerror += "<div class='error-message messageerror'>" + value + "</div>"
+                            $("#message_error").html(messageerror);
+
+                        }
+                    });
+                }
+
+            })
+        })
+    </script>
+{% endblock %}

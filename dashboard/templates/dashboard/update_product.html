@@ -1,0 +1,121 @@
+{% extends 'dashboard/base.html' %}
+{% block body %}
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i> Product</h3>
+            <!-- BASIC FORM ELELEMNTS -->
+            <div class="row mt">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <h4 class="title">Update Product</h4>
+                    {% if errors %}
+                        <div class="alert alert-danger">
+                            {% for name, error in errors.items %}
+
+                                {{ name }}: {{ error.as_text }}<br>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <form enctype="multipart/form-data" class="contact-form" method="post"
+                          action="{% url 'dashboard:product_update' product.slug %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            Name:
+                            <input type="text" name="name" class="form-control" id="contact-name"
+                                   placeholder="Product Name" data-rule="minlen:4"
+                                   data-msg="Please enter at least 4 chars" value="{{ product.name }}" required>
+                            <div class="validate"></div>
+                        </div>
+                        <div class="form-group">
+                            category:
+                            <select class="selectpicker form-control"
+                                    multiple multiple data-live-search="true"
+                                    name="category" required>
+                                {% for category in categories %}
+                                    <option value="{{ category.id }}" {% if product.category == category %}
+                                            selected {% endif %}>{{ category.name }}</option>
+                                {% endfor %}
+                            </select><br>
+                        </div>
+
+                        <div class="form-group">
+                            description:
+                            {{ form.media }}{{ form.desc }}
+                            <div class="validate"></div>
+                        </div>
+
+                        <div class="form-group">
+                            search key:
+                            <input type="text" name="search_key" class="form-control" id="contact-name"
+                                   placeholder="Search Key" data-rule="minlen:4"
+                                   data-msg="Please enter at least 4 chars" value="{{ product.search_key }}" required>
+                            <div class="validate"></div>
+                        </div>
+                        <div>
+                            <img src="{{ product.thumbnail_image.url }}" width="200vh" height="300vh">
+                        </div>
+
+                        <div class="form-group">
+                            Select new image to update thumbnail 1:
+                            <input type="file" class="form-control" accept="image/*" name="thumbnail_image">
+                            <div class="validate"></div>
+                        </div>
+                        <div>
+                            <img src="{{ product.thumbnail_image2.url }}" width="200vh" height="300vh">
+                        </div>
+
+                        <div class="form-group">
+                            Select new image to update Thumbnail 2:
+                            <input type="file" class="form-control" accept="image/*" name="thumbnail_image2">
+                            <div class="validate"></div>
+                        </div>
+                        <div>
+                            {% if product.product_images1 %}
+                                <img src="{{ product.product_images1.url }}" width="200vh" height="300vh">
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            select a new image to choose new product image 1: (optional)
+                            <input type="file" class="form-control" accept="image/*" name="product_images1">
+                            <div class="validate"></div>
+                        </div>
+                        <div>
+                            {% if product.product_images2 %}
+                                <img src="{{ product.product_images2.url }}" width="200vh" height="300vh">
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            select a new image to choose new product image 2: (optional)
+                            <input type="file" class="form-control" accept="image/*" name="product_images2">
+                            <div class="validate"></div>
+                        </div>
+
+                        <div class="form-send">
+                            <button type="submit" class="btn btn-large btn-primary">Submit</button>
+                        </div>
+                    </form>
+
+
+                </div>
+
+
+            </div>
+            <!-- /row -->
+
+
+            <!-- /row -->
+        </section>
+        <!-- /wrapper -->
+    </section>
+{% endblock %}
+{% block js %}
+    <script>
+        $(function () {
+            $(".add_product_image").on('click', function () {
+                var ele = $(this).closest('.productimage').clone(true);
+                $(this).closest('.productimage').after(ele);
+            })
+        })
+    </script>
+{% endblock %}
+

@@ -1,0 +1,49 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block body %}
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <!-- <i class="fas fa-plus"></i> -->
+                    <li><a class="logout" href="{% url 'dashboard:cat_add' %}"> Add Categories</a></li>
+                </ul>
+            </div>
+            <h3><i class="fa fa-angle-right"></i> Categories</h3>
+
+            <div class="row mb">
+                <!-- page start-->
+                <div class="content-panel">
+                    <div class="container adv-table">
+                        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered"
+                               id="hidden-table-info">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Desc</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for cat in categories %}
+                                <tr class="gradeA">
+                                    <td>{{ cat.name }}</td>
+                                    <td>{{ cat.desc|slice:"20" }}</td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <!-- page end-->
+            </div>
+            <!-- /row -->
+
+        </section>
+        <!-- /wrapper -->
+    </section>
+{% endblock %}

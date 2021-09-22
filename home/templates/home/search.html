@@ -1,0 +1,62 @@
+{% extends 'home/base.html' %}
+{% block title %}
+    Product Search
+{% endblock %}
+{% block body %}
+    <!-- Start Our products section -->
+    <div class="container nproduct text-center mb-5" id="nproduct">
+        <h2 class="mt-4 mb-4">Search <strong>Result</strong>:{{ search_key }}</h2>
+        <!-- Start Product Category Filter -->
+        {% if products|length < 1 %}
+            <br>
+            <h2 class="mt-4 mb-4">No Record Found</h2>
+        {% endif %}
+        <div class="row mt-4 mb-5">
+            {% for product in products %}
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="{% url 'product:product_details' product.slug %}">
+                                <img class="pic-1" src="{{ product.thumbnail_image.url }}">
+                                <img class="pic-2" src="{{ product.thumbnail_image.url }}">
+                            </a>
+                            <a href="{% url 'product:product_details' product.slug %}"><span class="view"><i
+                                    class="fas fa-eye"></i> View</span></a>
+                        </div>
+                        <div class="product-content ">
+                            <p class="card-text title "><a href="{% url 'product:product_details' product.slug %}">
+                                {{ product.name|slice:'26' }}{% if product.name|length > 26 %}...{% endif %}</a>
+                            </p>
+                            <span class="category mt-2">{{ product.category }}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- End Our products section -->
+
+    <!-- Start Pagination -->
+    <div class="text-center">
+        <div class="pagination mb-4 mt-2">
+            {% if products.has_previous %}
+                <a href="{% url 'product:all_product' %}?page={{ products.previous_page_number }}">&laquo; Previous</a>
+            {% endif %}
+            <a href="#" class="active">{{ page_number }}</a>
+            {% if products.has_next %}
+                <a href="{% url 'product:all_product' %}?page={{ products.next_page_number }}">Next&raquo;</a>
+            {% endif %}
+        </div>
+    </div>
+    <!-- End Pagination -->
+    <!-- Importing AOS library to apply animation to the content while scrolling. Like in feeback section, the cards animate as up and down because of this library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            //disable: 'mobile',    //this disables the scrolling animation for mobile screens
+            offset: 100,
+            duration: 500
+        });
+    </script>
+    <!-- End Our products section -->
+{% endblock %}

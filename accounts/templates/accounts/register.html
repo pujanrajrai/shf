@@ -1,0 +1,13 @@
+<html>
+<form method="post" action="{% url 'accounts:register' %}">
+    {% csrf_token %}
+    email:<input type="email" name="email"><br>
+    first name:<input type="text" name="first_name"><br>
+    middle name:<input type="text" name="middle_name"><br>
+    last name:<input type="text" name="last_name"><br>
+    address:<input type="text" name="address"><br>
+    password:<input type="password" name="password"><br>
+    re-enter your password:<input type="password" name="password2"><br>
+    <input type="submit" value="Register"><br>
+</form>
+</html>

@@ -1,0 +1,172 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %}
+    product-details
+{% endblock %}
+{% block body %}
+
+    <section class="container sproduct my-5">
+
+        <div class="row mt-5">
+
+            <div class="main-img col-lg-5 col-md-12 col-12">
+                <img class="img-fluid w-100 pb-1" src="{{ product.thumbnail_image.url }}" id="MainImg"
+                     alt="">
+                <div class="small-img-group">
+                    <div class="small-img-col">
+                        <img src="{{ product.thumbnail_image.url }}" width="100%" class="small-img" alt="">
+                    </div>
+                    <div class="small-img-col">
+                        {% if product.thumbnail_image2 %}
+                            <img src="{{ product.thumbnail_image2.url }}" width="100%" class="small-img" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="small-img-col">
+                        {% if product.product_images1 %}
+                            <img src="{{ product.product_images1.url }}" width="100%" class="small-img" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="small-img-col">
+                        {% if product.product_images2 %}
+                            <img src="{{ product.product_images2.url }}" width="100%" class="small-img" alt="">
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+            <div class="product-detail my-5 ml-3 col-lg-6 col-md-12 col-12-sm">
+
+                <h3 class=""><b>{{ product.name }}</b></h3>
+
+
+                <h5 class="mt-5 mb-5"><b>Product Description</b></h5>
+                <span>{{ product.desc|safe }}</span><br>
+
+                <a class="btn mt-5 text-white" href="#" role="button" data-toggle="modal"
+                   data-target="#modalRegisterForm"><i
+                        class="fas fa-eye"></i> Inquiry Now</a>
+            </div>
+        </div>
+    </section>
+    <!-- Bootstrap modal after clicking enquiry button -->
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Enquiry Detail</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    {% if errors %}
+                        <div class="alert alert-danger">
+                            {% for name, error in errors.items %}
+                                {{ name }}: {{ error.as_text }}<br>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <form action="{% url 'product:product_details' slug %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{ slug }}" name="slug">
+
+                        <div class="md-form mb-2">
+                            <i class="fas fa-user prefix grey-text mr-2"></i><label data-error="wrong"
+                                                                                    data-success="right"
+                                                                                    for="orangeForm-name"> Your
+                            Name</label>
+                            <input type="text" name="name" id="orangeForm-name" class="form-control validate" required>
+
+                        </div>
+
+                        <div class="md-form mb-2">
+                            <i class="fas fa-user prefix grey-text mr-2"></i><label data-error="wrong"
+                                                                                    data-success="right"
+                                                                                    for="orangeForm-name2">
+                            Address</label>
+                            <input type="text" name="address" id="orangeForm-name2" class="form-control validate"
+                                   required>
+                        </div>
+
+
+                        <div class="md-form mb-2">
+                            <i class="fas fa-phone-volume mr-2"></i><label data-error="wrong" data-success="right"
+                                                                           for="orangeForm-pass"> Your Number</label>
+                            <input type="number" name="phone_number" minlength="10" maxlength="10" id="orangeForm-pass"
+                                   min="1" class="form-control validate" required>
+
+                        </div>
+
+                        <div class="md-form mb-2">
+                            <i class="fas fa-poll mr-2"></i><label data-error="wrong" data-success="right"
+                                                                   for="orangeForm-pass">
+                            Product Quantity</label>
+                            <input type="number" name="quantity" id="orangeForm-pass" class="form-control validate"
+                                   required>
+
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                            <button class="btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- End Bootstrap modal after clicking enquiry button -->
+
+
+    <!-- Related Products -->
+    <div class="container nproduct text-center mb-5" id="nproduct">
+        <h2 class="mt-5 mb-5">RELATED <strong>PRODUCTS</strong></h2>
+        <div class="row">
+            {% for product in related_product %}
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="{% url 'product:product_details' product.slug %}">
+                                <img class="pic-1" src="{{ product.thumbnail_image.url }}">
+                                <img class="pic-2" src="{{ product.thumbnail_image2.url }}">
+                            </a>
+                            <a href="{% url 'product:product_details' product.slug %}"><span class="view"><i
+                                    class="fas fa-eye"></i> View</span></a>
+
+                        </div>
+
+                        <div class="product-content ">
+                            <p class="card-text title "><a href="{% url 'product:product_details' product.slug %}">
+                                {{ product.name|slice:'26' }}{% if product.name|length > 26 %}...{% endif %}</a>
+                            </p>
+                            <span class="category mt-2">{{ product.category }}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+{% endblock %}
+{% block js %}
+    <!-- Start Product Image Zoom on Hover  -->
+    <script src="{% static 'website/js/zoomsl.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $("#MainImg").imagezoomsl({
+                zoomrange: [3, 3],
+                disable: 'mobile',
+            });
+        });
+    </script>
+    <script>
+        {% if errors %}
+            $('.modal').modal('show');
+        {% endif %}
+    </script>
+    <!-- End Product Image Zoom on Hover  -->
+{% endblock %}

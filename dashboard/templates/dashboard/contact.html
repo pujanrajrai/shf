@@ -1,0 +1,54 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block body %}
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i> Contact<a class="m-5 btn btn-success"
+                                                             href="{% url 'dashboard:contact_specific' "False" %}">New</a>
+                <a class="btn btn-success" href=" {% url 'dashboard:contact_specific' "True" %}">Old</a>
+            <a class="btn btn-success" href=" {% url 'dashboard:contact' %}">All</a></h3>
+
+            <div class="row mb">
+                <!-- page start-->
+                <div class="content-panel">
+                    <div class="container adv-table">
+                        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered"
+                               id="hidden-table-info">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                                <th>Recived Date</th>
+                                <th>Message Viewed</th>
+                                <th>Action</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for cat in contact %}
+                                <tr class="gradeA">
+                                    <td>{{ cat.name }}</td>
+                                    <td>{{ cat.email }}</td>
+                                    <td>{{ cat.subject }}</td>
+                                    <td class="hidden-phone">{{ cat.message }}</td>
+                                    <td class="hidden-phone">{{ cat.send_date }}</td>
+                                    <td class="hidden-phone">{{ cat.message_viewed }}</td>
+                                    <td class="hidden-phone">{% if cat.message_viewed == False %}<a class="btn btn-success" href="{% url 'dashboard:contact_read' cat.id %}">Marked As Read</a> {% else %} Viewed {% endif %} </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <!-- page end-->
+            </div>
+            <!-- /row -->
+        </section>
+        <!-- /wrapper -->
+    </section>
+{% endblock %}

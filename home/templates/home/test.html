@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'css/bootstrapCdn.min.css' %}" rel="stylesheet">
+    <!-- Fontawesome CSS -->
+    <link href="{% static 'css/all.min.css' %}" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="{% static 'css/googlefont.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- Linking AOS Library -->
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="assets/logo.png" rel="icon"/>
+    <!-- Owl carousel css cdn for slider -->
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet"/>
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        {% block style %}{% endblock %}
+    </style>
+    {% block csslink %}{% endblock %}
+</head>
+
+<body>
+{% block body %}
+{% endblock %}
+<!-- End of Importing library AOS for the animation -->
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+
+<!-- Owl carousel js cdn for slider -->
+<script src="{% static 'js/owl.carousel.min.js' %}" referrerpolicy="no-referrer"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+   ></script> -->
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrapCdn.min.js' %}"></script>
+<!-- Fontawesome JS -->
+<script src="{% static 'js/all.min.js' %}"></script>
+
+<!-- Custom JS -->
+<script src="{% static 'js/main.js' %}"></script>
+{% block js %}
+{% endblock %}
+{% block script %}
+{% endblock %}
+
+</body>
+
+</html>

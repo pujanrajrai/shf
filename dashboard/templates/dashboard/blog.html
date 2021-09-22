@@ -1,0 +1,65 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block body %}
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <!-- <i class="fas fa-plus"></i> -->
+                    <li><a class="logout" href="{% url 'dashboard:create_blog' %}"> Add Blog</a></li>
+                </ul>
+            </div>
+            <h3><i class="fa fa-angle-right"></i> Blog</h3>
+            <div class="row mb">
+                <!-- page start-->
+                <div class="content-panel">
+                    <div class="container adv-table">
+                        <table class="display table table-bordered"
+                               id="hidden-table-info">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th class="hidden-phone">Description</th>
+                                <th class="hidden-phone">Images</th>
+                                <th class="hidden-phone">Action</th>
+                                <th class="hidden-phone">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for b in blog %}
+                                <tr class="gradeA">
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ b.name }}</td>
+                                    <td class="hidden-phone">{{ b.desc|safe|slice:"100" }}</td>
+                                    <td class="hidden-phone"><img src="{{ b.thumbnail_image.url }}"
+                                                                  style="object-fit: cover" width="350vh"
+                                                                  height="100vh"></td>
+                                    <td><a class="btn btn-warning"
+                                           href="{% url 'dashboard:blog_update' b.slug %}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <form method="post"
+                                              action="{% url 'dashboard:blog_remove' b.id %}"
+                                              onsubmit="return confirm('Do you really want to Delete the Blog?');">{% csrf_token %}<input
+                                                class="btn btn-danger" value="Delete" type="submit"></form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <!-- page end-->
+            </div>
+
+            <!-- /row -->
+        </section>
+        <!-- /wrapper -->
+    </section>
+{% endblock %}

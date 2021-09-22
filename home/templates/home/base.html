@@ -1,0 +1,265 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'website/css/bootstrapCdn.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'website/css/style.css' %}" rel="stylesheet">
+    <!-- Linking AOS Library -->
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="{% static 'website/assets/circle.png' %}" rel="icon"/>
+    <!-- Owl carousel css cdn for slider -->
+    <link href="{% static 'website/css/owl-carousel.css' %}" rel="stylesheet"/>
+    {% block csslink%}
+
+    {% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    {% block css %}
+    {% endblock %}
+</head>
+
+<body>
+
+<!-- <div class="mt-2 text-center h-5 bg-secondary text-white">
+  <p>SH FURNITURE</p><p> &#9742; 081-542182, <i class="fas fa-phone mr-3"></i>+977 9858021500</p>
+</div> -->
+
+<!--Start Navbar -->
+{% if sucess_message %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ sucess_message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+
+    <img src="{% static 'website/assets/logo.png' %}" style="object-fit: cover;" height="85" width="130"
+         alt="SH Furniture">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home:home' %}">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    About
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'home:about_us' %}">About Us</a>
+                    <!-- <a class="dropdown-item" href="about.html#team">Our Team</a> -->
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'home:faq' %}">FAQs</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'product:all_product' %}">Product</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blogs:all_blogs' %}">Blog</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#gallery">Gallery</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" href="/#contact">Contact</a>
+            </li>
+        </ul>
+        <form method="get" action="{% url 'home:search' %}" class="form form-inline my-lg-0">
+            <input name="search" class="form-control my-2 mr-sm-2" type="search" placeholder="Search..."
+                   aria-label="Search"><br>
+            <button class="btn my-2 my-sm-0 mr-2 d-none d-lg-block" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+</nav>
+<!-- End Navbar -->
+{% block body %}
+{% endblock %}
+
+<!-- Start Footer Section -->
+<section class="footer bg-light">
+    <!-- Footer -->
+    <footer class="page-footer font-small text-white bg-dark">
+        <div class="up-footer">
+            <div class="container">
+                <!-- Grid row-->
+                <div class="row py-4 d-flex align-items-center">
+                    <!-- Grid column -->
+                    <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                        <h6 class="mb-0">Get connected with us on social media platforms!</h6>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-6 col-lg-7 text-center text-md-right">
+                        <!-- Facebook -->
+                        <a class="fb-ic">
+                            <i class="fab fa-facebook-f mr-4"> </i>
+                        </a>
+                        <!-- Gmail-->
+                        <a class="gmail-ic" title="shfurniture3@gmail.com">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row-->
+
+            </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="footer-links container text-center text-md-left mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3 dark-grey-text">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+
+                    <!-- Content -->
+                    <h6 class="footer-logo text-uppercase font-weight-bold"><img
+                            src="{% static 'website/assets/circle.png' %}"
+                            height="40"
+                            alt="SH Furniture"><strong> SH
+                        Furniture Udhyog</strong></h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto">
+                    <p>SH Furniture Udhyog is one of the reputed furniture items producers in the Mid Western
+                        Development Region of Nepal, located at Kohalpur-11, Banke, Nepal.</p>
+
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="links col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold"><strong>Useful links</strong></h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto">
+                    <p>
+                        <a href="{% url 'home:home' %}" class="text-white">Home</a>
+                    </p>
+                    <p>
+                        <a href="{% url 'home:about_us' %}" class="text-white">About</a>
+                    </p>
+                    <p>
+                        <a href="{% url 'blogs:all_blogs' %}" class="text-white">Blog</a>
+                    </p>
+                    <p>
+                        <a href="{% url 'home:faq' %}" class="text-white">FAQs</a>
+                    </p>
+                    <p>
+                        <a href="/#contact" class="text-white">Contact</a>
+                    </p>
+
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="products col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold"><strong>Products</strong></h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto">
+                    <p>
+                        <a href="/search/categories/chair" class="text-white">Chair</a>
+                    </p>
+                    <p>
+                        <a href="/search/categories/sofa" class="text-white">Sofa</a>
+                    </p>
+
+
+                    <p>
+                        <a href="/search/categories/rack" class="text-white">Rack</a>
+                    </p>
+                    <p>
+                        <a href="/search/categories/table" class="text-white">Table</a>
+                    </p>
+                    <p>
+                        <a href="/search/categories/hospital items" class="text-white">Hospital Items</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="contact col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold"><strong>Contact</strong></h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto">
+                    <p>
+                        <i class="fas fa-map-marker-alt mr-3"></i> Kohalpur-11 Banke, Nepal
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope mr-3"></i> shfurniture3@gmail.com
+                    </p>
+                    <p>
+                        <i class="fas fa-phone mr-3"></i> +977 9858021500
+                    </p>
+                    <p>
+                        <i class="fab fa-whatsapp mr-3"></i> +977 9858042182
+                    </p>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center text-black-50 py-3">© 2021 Copyright:
+            <a class="text-white" href="#"><strong> SH Furniture Udhyog</strong></a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+</section>
+<!-- End Footer Section -->
+
+<!-- Importing AOS library to apply animation to the content while scrolling. Like in feeback section, the cards animate as up and down because of this library -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        //disable: 'mobile',    //this disables the scrolling animation for mobile screens
+        offset: 100,
+        duration: 500
+    });
+</script>
+<!-- End of Importing library AOS for the animation -->
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="{% static 'website/js/jquery-1.12.4.min.js' %}"></script>
+
+<!-- Owl carousel js cdn for slider -->
+<script src="{% static 'website/js/owl.carousel.min.js' %}" referrerpolicy="no-referrer"></script>
+
+<script src="{% static 'website/js/popper.min.js' %}"></script>
+<script src="{% static 'website/js/bootstrapCdn.min.js' %}"></script>
+<!-- Fontawesome JS -->
+<script src="{% static 'website/js/all.min.js' %}"></script>
+
+<!-- Custom JS -->
+<script src="{% static 'website/js/main.js' %}"></script>
+{% block js %}
+{% endblock %}
+
+</body>
+
+</html>
