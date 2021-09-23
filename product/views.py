@@ -2,6 +2,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from .models import Product, ProductInquiry
 from .forms import ProductInquiryForm
+from django.contrib import messages
 
 
 # Create your views here.
@@ -33,6 +34,8 @@ def product_details(request, slug):
                 address=request.POST.get('address'),
                 quantity=request.POST.get('quantity'),
             )
+            messages.success(request, 'Inquiry send successfully ')
+
             return redirect('product:product_details', slug=slug)
         else:
             context['errors'] = form.errors

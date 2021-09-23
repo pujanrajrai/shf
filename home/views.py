@@ -1,9 +1,7 @@
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render, redirect
-from django.urls import reverse
-
+from django.http import JsonResponse
+from django.shortcuts import render
 from product.models import Product
 from blog.models import Blog
 from .forms import ContactForm
@@ -31,10 +29,10 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            return JsonResponse({"message": "success"},safe=False)
+            return JsonResponse({"message": "success"}, safe=False)
         else:
             context = {"errors": form.errors}
-            return JsonResponse(context,safe=False)
+            return JsonResponse(context, safe=False)
 
 
 def search(request):

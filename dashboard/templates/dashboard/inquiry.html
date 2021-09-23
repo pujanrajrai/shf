@@ -13,8 +13,7 @@
                 <!-- page start-->
                 <div class="content-panel">
                     <div class="container adv-table">
-                        <table  class="display  table-bordered"
-                               id="hidden-table-info">
+                        <table  class="display  table-bordered" id="hidden-table-info">
                             <thead>
                             <tr>
                                 <th>ID</th>
@@ -39,7 +38,7 @@
                                     <td>{{ i.address }}</td>
                                     <td>{{ i.quantity }}</td>
                                     <td>{{ i.date }}</td>
-                                    <td class="hidden-phone">{% if i.viewed == False %}<a class="btn btn-success" href="{% url 'dashboard:inquiry_read' i.id %}">Marked As Read</a> {% else %} Viewed {% endif %} </td>
+                                    <td>{% if i.viewed == False %}<a class="btn btn-success" href="{% url 'dashboard:inquiry_read' i.id %}">Marked As Read</a> {% else %} Viewed {% endif %} </td>
                                 </tr>
                             {% endfor %}
                             </tbody>

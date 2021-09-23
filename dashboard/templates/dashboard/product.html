@@ -21,10 +21,10 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th class="hidden-phone">Description</th>
-                                <th class="hidden-phone">Images</th>
-                                <th class="hidden-phone">Action</th>
-                                <th class="hidden-phone">Action</th>
+                                <th>Description</th>
+                                <th>Images</th>
+                                <th>Action</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -32,8 +32,8 @@
                                 <tr class="gradeA">
                                     <td>{{ forloop.counter }}</td>
                                     <td>{{ p.name }}</td>
-                                    <td class="hidden-phone">{{ p.desc|safe|slice:"100" }}</td>
-                                    <td class="hidden-phone"><img src="{{ p.thumbnail_image.url }}"
+                                    <td>{{ p.desc|safe|slice:"100" }}</td>
+                                    <td><img src="{{ p.thumbnail_image.url }}"
                                                                   style="object-fit: cover" width="350vh"
                                                                   height="100vh"></td>
                                     <td>

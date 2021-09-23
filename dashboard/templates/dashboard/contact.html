@@ -33,10 +33,10 @@
                                     <td>{{ cat.name }}</td>
                                     <td>{{ cat.email }}</td>
                                     <td>{{ cat.subject }}</td>
-                                    <td class="hidden-phone">{{ cat.message }}</td>
-                                    <td class="hidden-phone">{{ cat.send_date }}</td>
-                                    <td class="hidden-phone">{{ cat.message_viewed }}</td>
-                                    <td class="hidden-phone">{% if cat.message_viewed == False %}<a class="btn btn-success" href="{% url 'dashboard:contact_read' cat.id %}">Marked As Read</a> {% else %} Viewed {% endif %} </td>
+                                    <td>{{ cat.message }}</td>
+                                    <td>{{ cat.send_date }}</td>
+                                    <td>{{ cat.message_viewed }}</td>
+                                    <td>{% if cat.message_viewed == False %}<a class="btn btn-success" href="{% url 'dashboard:contact_read' cat.id %}">Marked As Read</a> {% else %} Viewed {% endif %} </td>
                                 </tr>
                             {% endfor %}
                             </tbody>

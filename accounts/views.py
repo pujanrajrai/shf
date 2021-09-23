@@ -1,15 +1,16 @@
 from django.contrib import messages, auth
-from django.contrib.sites.shortcuts import get_current_site
-from django.core.mail import EmailMessage
+# from django.contrib.sites.shortcuts import get_current_site
+# from django.core.mail import EmailMessage
 from django.shortcuts import render, redirect, HttpResponse
-from django.template.loader import render_to_string
-from django.utils.encoding import force_bytes, force_text
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from .forms import RegisterForm
-from .models import MyUser
-from .utlis import generate_token
-from django.contrib.auth.decorators import login_required
 
+
+# from django.template.loader import render_to_string
+# from django.utils.encoding import force_bytes, force_text
+# from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+# from .forms import RegisterForm
+# from .models import MyUser
+# from .utlis import generate_token
+# from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
