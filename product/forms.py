@@ -12,7 +12,7 @@ class ProductInquiryForm(forms.ModelForm):
         phone_number = self.cleaned_data.get('phone_number')
         name = self.cleaned_data.get('name')
         address = self.cleaned_data.get('address')
-        quantity = self.cleaned_data.get('quantity'),
+        import pdb;pdb.set_trace()
         if len(phone_number) != 10:
             self._errors['phone_number'] = self.error_class([
                 'Phone Number should be of 10 character'])

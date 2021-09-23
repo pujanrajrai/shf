@@ -25,7 +25,7 @@
                     <div class="carousel-caption d-none d-md-block">
                         <h2 class="text-white"><b>Get to Know SH Furniture</b></h2>
                         <p class="text-white"><b>Find out what makes us Nepal's Finest Furniture Store</b></p>
-                        <a class="btn btn-dark text-white" target="_blank" href="{% url 'home:about_us' %}" role="button"> About
+                        <a class="btn btn-dark text-white" href="{% url 'home:about_us' %}" role="button"> About
                             SH <i class="fas fa-arrow-right"></i></a>
 
                     </div>
@@ -36,7 +36,7 @@
                     <div class="carousel-caption d-none d-md-block">
                         <h2 class="text-dark"><b>Deliver Quality Products</b></h2>
                         <p class="text-dark"><b>SH Furniture aims in the production of the quality products.</b></p>
-                        <a class="btn btn-dark text-white" target="_blank" href="{% url 'home:about_us' %}" role="button"> About
+                        <a class="btn btn-dark text-white" href="{% url 'home:about_us' %}" role="button"> About
                             SH <i class="fas fa-arrow-right"></i></a>
 
 
@@ -48,7 +48,7 @@
                     <div class="carousel-caption d-none d-md-block">
                         <h2 class="text-white"><b>Meet The Clients Requirements</b></h2>
                         <p class="text-white"><b>Client satisfaction is our ultimate target.</b></p>
-                        <a class="btn btn-dark text-white" target="_blank" href="{% url 'home:about_us' %}" role="button"> About
+                        <a class="btn btn-dark text-white" href="{% url 'home:about_us' %}" role="button"> About
                             SH <i class="fas fa-arrow-right"></i></a>
 
 
@@ -60,7 +60,7 @@
                     <div class="carousel-caption d-none d-md-block">
                         <h2 class="text-dark"><b>Produce Trustworthy & Durable Product</b></h2>
                         <p class="text-dark"><b>Products of the company are reliable and sustainable.</b></p>
-                        <a class="btn btn-dark text-white" target="_blank" href="{% url 'home:about_us' %}" role="button"> About
+                        <a class="btn btn-dark text-white" href="{% url 'home:about_us' %}" role="button"> About
                             SH <i class="fas fa-arrow-right"></i></a>
 
 
@@ -148,7 +148,7 @@
                 {% for product in products %}
                     <div class="product mr-2">
                         <div class="product-img">
-                            <a href="" class="image">
+                            <a href="{% url 'product:product_details' product.slug %}" class="image">
                                 <img class="img-thumbnail pic-1"
                                      src="{{ product.thumbnail_image.url }}">
                                 <img class="img-thumbnail pic-2"
@@ -159,10 +159,10 @@
 
                         </div>
                         <div class="content">
-                            <p class="card-text title"><a href="">
+                            <p class="card-text title"><a href="{% url 'product:product_details' product.slug %}">
                                 {{ product.name|slice:"15" }}{% if product.name|length > 15 %}...{% endif %}</a>
                             </p>
-                            <span class="category"><a href="">{{ product.category }}</a></span>
+                            <span class="category">{{ product.category }}</span>
                         </div>
                     </div>
                 {% endfor %}
@@ -189,13 +189,14 @@
                         <div class="blog-card col-md-4 mb-4">
                             <div class="bg-image hover-overlay ripple shadow-1-strong rounded mb-4"
                                  data-ripple-color="light">
-                                <img src="{{ blog.thumbnail_image.url }}" class="w-100"/>
+                                <a href="{% url 'blogs:blog_details' blog.slug %}"> <img
+                                        src="{{ blog.thumbnail_image.url }}" class="w-100"/></a>
                             </div>
                             <h5>{{ blog.name|slice:"30" }}{% if blog.name|length > 30 %}......{% endif %}</h5>
                             <p>
                                 {{ blog.desc|safe|slice:"120" }}{% if blog.desc|length > 30 %}......{% endif %}
                             </p>
-                            <a class="read-btn mt-4 text-dark" href="{% url 'blogs:all_blogs' %}"> <strong>Read
+                            <a class="read-btn mt-4 text-dark" href="{% url 'blogs:blog_details' blog.slug %}"> <strong>Read
                                 More </strong><i
                                     class="fas fa-arrow-right"></i></a>
                         </div>
@@ -354,6 +355,26 @@
             </div>
             <!-- Grid row -->
         </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Custom Design</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        We do Make custom Design Please Contact us if you have any custom design Product
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a href="/#contact" class="btn btn-primary" id="contactusbtn">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- End Contact Section -->
 
@@ -422,5 +443,11 @@
 
             })
         })
+    </script>
+    <script>
+        $('.modal').modal('show');
+        $("#contactusbtn").click(function () {
+            $('.modal').modal('hide');
+        });
     </script>
 {% endblock %}

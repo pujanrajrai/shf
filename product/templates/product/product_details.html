@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %}
 {% load static %}
 {% block title %}
-    product-details
+    {{ product.name }}
 {% endblock %}
 {% block body %}
 
@@ -93,9 +93,11 @@
 
                         <div class="md-form mb-2">
                             <i class="fas fa-phone-volume mr-2"></i><label data-error="wrong" data-success="right"
-                                                                           for="orangeForm-pass"> Your Number</label>
-                            <input type="number" name="phone_number" minlength="10" maxlength="10" id="orangeForm-pass"
-                                   min="1" class="form-control validate" required>
+                                                                           for="orangeForm-pass"> Mobile Number</label>
+                            <input type="text" id="orangeForm-pass" maxlength="10" minlength="10" name="phone_number" class="form-control validate"
+                                   pattern="[9]{1}[0-9]{9}"
+                                   title="Phone number starting with 9 and remaing 9 digit with 0-9" required
+                                   onkeypress="isInputNumber(event)">
 
                         </div>
 
@@ -169,4 +171,12 @@
         {% endif %}
     </script>
     <!-- End Product Image Zoom on Hover  -->
+    <script>
+        function isInputNumber(evt) {
+            var ch = String.fromCharCode(evt.which);
+            if (!(/[0-9]/.test(ch))) {
+                evt.preventDefault();
+            }
+        }
+    </script>
 {% endblock %}

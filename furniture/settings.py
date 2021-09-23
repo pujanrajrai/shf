@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+LOGIN_REDIRECT_URL = 'home'
+
 
 DJANGO_APPS = [
     'accounts',

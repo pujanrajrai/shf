@@ -2,6 +2,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 from .models import Blog
 
+
 # Create your views here.
 
 def blogs(request):
@@ -17,7 +18,6 @@ def blogs(request):
 
 
 def blog_details(request, slug):
-    blog = Blog.objects.filter(slug=slug)
-    context = {'blogs': blog}
+    blog = Blog.objects.get(slug=slug)
+    context = {'blogs': blog, 'slug': slug}
     return render(request, 'blog/blog_details.html', context)
-
